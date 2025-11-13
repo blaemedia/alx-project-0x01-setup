@@ -1,12 +1,44 @@
 import React from 'react';
 import UserCard from "../../components/common/UserCard";
 import { UserProps } from '../../interfaces'; 
+import UserModal from "@/components/UserModal";
+import { User } from "@/interfaces";
+import React, { useState } from "react";
 
 interface UsersPageProps {
   posts: UserProps[];
 }
 
 export default Users;
+
+
+const UsersPage = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleAddUser = (user: User) => {
+    console.log("New User:", user);
+    // TODO: Add user to your state or API
+  };
+
+  return (
+    <div>
+      <button
+        className="px-4 py-2 bg-green-500 text-white rounded-lg"
+        onClick={() => setShowModal(true)}
+      >
+        Add User
+      </button>
+
+      {showModal && (
+        <UserModal
+          onClose={() => setShowModal(false)}
+          onSubmit={handleAddUser}
+        />
+      )}
+    </div>
+  );
+};
+
 
 export default function userPages({ posts }: UsersPageProps) {
   return (
