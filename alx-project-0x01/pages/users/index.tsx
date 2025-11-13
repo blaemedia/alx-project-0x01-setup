@@ -1,21 +1,29 @@
-import React from 'react'
-import Header from '@/components/layout/Header'
+import React from 'react';
+import UserCard from "../../components/common/UserCard";
+import  {UserProps}  from "components/common";
 
+interface UsersPageProps {
+  posts: UserProps[];
+}
+
+export default function UsersPage({ posts }: UsersPageProps) {
+  return (
+    <div className="p-5 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {posts.map((user) => (
+        <UserCard key={user.id} user={user} />
+      ))}
+    </div>
+  );
+}
+
+// Fetch users from API at build time
 export async function getStaticProps() {
-  const response = await fetch("https://jsonplaceholder.typicode.com/users")
-  const posts = await response.json()
+  const response = await fetch("https://jsonplaceholder.typicode.com/users");
+  const posts: UserProps[] = await response.json();
 
   return {
     props: {
       posts
     }
-  }
-}
-
-export default function index() {
-  return (
-    <div>
-      
-    </div>
-  )
+  };
 }
