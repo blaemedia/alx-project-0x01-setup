@@ -1,12 +1,12 @@
 import React from "react";
 import { Mail, Phone, MapPin, Globe, Building2 } from "lucide-react";
-import { UserProps } from "./UserProps";
+import { UserProps } from "@/interfaces"; 
 
-interface UserCardProps {
+interface UserProps {
   user: UserProps;
 }
 
-const UserCard: React.FC<UserCardProps> = ({ user }) => {
+const UserCard: React.FC<UserProps> = ({ user }) => {
   // Generate initials for avatar
   const initials = user.name
     .split(" ")
