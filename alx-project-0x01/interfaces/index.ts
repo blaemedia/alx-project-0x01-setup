@@ -30,8 +30,8 @@ export interface UserProps {
   company: Company;
 }
 
-// This must match the exact autochecker requirement
+
 export interface UserModalProps {
   onClose: () => void;
-  onSubmit: (post: UserProps) => void;  // note: 'post' here is required
+  onSubmit: (post: UserProps) => void;  
 }
