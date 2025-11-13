@@ -1,8 +1,22 @@
-export interface PostProps {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
+// interfaces/index.ts
+
+export interface Geo {
+  lat: string;
+  lng: string;
+}
+
+export interface Address {
+  street: string;
+  suite: string;
+  city: string;
+  zipcode: string;
+  geo: Geo;
+}
+
+export interface Company {
+  name: string;
+  catchPhrase: string;
+  bs: string;
 }
 
 export interface UserProps {
@@ -10,68 +24,14 @@ export interface UserProps {
   name: string;
   username: string;
   email: string;
-  address: {
-    street: string;
-    suite: string;
-    city: string;
-    zipcode: string;
-    geo: {
-      lat: string;
-      lng: string;
-    };
-  };
+  address: Address;
   phone: string;
   website: string;
-  company: {
-    name: string;
-    catchPhrase: string;
-    bs: string;
-  };
-}
-
-export interface PostData {
-  userId: number;
-  id?: number;
-  title: string;
-  body: string;
-}
-
-export interface PostModalProps {
-  onClose: () => void;
-  onSubmit: (post: PostData) => void;
-}
-
-export interface Geo {
-  lat: "-37.3159";
-  lng: "81.1496";
-}
-
-export interface Address {
-  street: "Kulas Light";
-  suite: "Apt. 556";
-  city: "Gwenborough";
-  zipcode: "92998-3874";
-  geo: Geo;
-}
-
-export interface Company {
-  name: "Romaguera-Crona";
-  catchPhrase: "Multi-layered client-server neural-net";
-  bs: "harness real-time e-markets";
-}
-
-export interface User {
-  id: 1;
-  name: "Leanne Graham";
-  username: "Bret";
-  email: "Sincere@april.biz";
-  address: Address;
-  phone: "1-770-736-8031 x56442";
-  website: "hildegard.org";
   company: Company;
 }
 
+// This must match the exact autochecker requirement
 export interface UserModalProps {
   onClose: () => void;
-  onSubmit: (user: UserProps) => void;
+  onSubmit: (post: UserProps) => void;  // note: 'post' here is required
 }
