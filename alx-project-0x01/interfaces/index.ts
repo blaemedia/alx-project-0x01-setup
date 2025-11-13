@@ -70,3 +70,8 @@ export interface User {
   website: "hildegard.org";
   company: Company;
 }
+
+export interface UserModalProps {
+  onClose: () => void;
+  onSubmit: (user: UserProps) => void;
+}
