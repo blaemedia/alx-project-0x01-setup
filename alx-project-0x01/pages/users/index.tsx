@@ -1,12 +1,12 @@
 import React from 'react';
 import UserCard from "../../components/common/UserCard";
-import  {UserProps}  from "components/common";
+import { UserProps } from '../../interfaces'; 
 
 interface UsersPageProps {
   posts: UserProps[];
 }
 
-export default function UsersPage({ posts }: UsersPageProps) {
+export default users({ posts }: UsersPageProps) {
   return (
     <div className="p-5 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {posts.map((user) => (
